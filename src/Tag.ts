@@ -6,15 +6,15 @@ class Tag {
     this.Type = type;
     this.Attr = attr;
   }
-  private type VoidElement = "br" | "img" | "col" | "input"; 
+  private singleElement: string[] = ['br', 'img', 'col', 'input']; 
   Type: string;
   Attr: object;
 
   public toString(): string {
-    if(this.Type is VoidElement)
-      return `<${this.Type} ${getAttributes()}>`;   
+    if(this.singleElement.includes(this.Type)){
+      return `<${this.Type} ${this.getAttributes()}>`;
     }
-    return `<${this.Type} ${getAttributes()}></${this.Type}>`;
+    return `<${this.Type} ${this.getAttributes()}></${this.Type}>`;
   }
 
   private getAttributes(): string {
